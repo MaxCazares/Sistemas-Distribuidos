@@ -1,0 +1,17 @@
+1) Certificado autofirmado
+keytool -genkeypair -keyalg RSA -alias certificado_servidor -keystore keystore_servidor.jks -storepass 1234567
+
+2) Obtener el certificado contenido en el keystore
+keytool -exportcert -keystore keystore_servidor.jks -alias certificado_servidor -rfc -file certificado_servidor.pem -storepass 1234567
+
+3) Creación de un keystore para el cliente
+keytool -import -alias certificado_servidor -file certificado_servidor.pem -keystore keystore_cliente.jks -storepass 123456
+
+4) Ejecutar el servidor
+java -Djavax.net.ssl.keyStore=keystore_servidor.jks -Djavax.net.ssl.keyStorePassword=1234567 ServidorSSL
+
+5) Ejecutar el cliente
+java -Djavax.net.ssl.trustStore=keystore_cliente.jks -Djavax.net.ssl.trustStorePassword=123456 ClienteSSL
+
+**Nota: no olvides compilar los programas ClienteSSL.java y ServidorSSL.java antes de ejecutarlos
+*** javac ClienteSSL.java ServidorSSL.java ***
