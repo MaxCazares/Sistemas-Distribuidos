@@ -1,5 +1,3 @@
-package src;
-
 public class Thread2 extends Thread {
 
     // Declaring variable of type Class1

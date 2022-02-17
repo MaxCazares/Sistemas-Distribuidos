@@ -1,4 +1,3 @@
-package src;
 public class A extends Thread {
 
     static long n;

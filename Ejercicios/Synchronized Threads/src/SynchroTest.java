@@ -1,4 +1,6 @@
-package src;
+// import src.PrintTest;
+// import src.Thread1;
+// import src.Thread2;
 
 public class SynchroTest {
     

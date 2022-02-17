@@ -1,5 +1,3 @@
-package src;
-
 public class PrintTest extends Thread {
 
     synchronized public void printThread(int n) {
