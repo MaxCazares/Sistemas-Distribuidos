@@ -3,96 +3,141 @@ import java.io.DataOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-// Forma de compilarlo: 
-// javac CalculoPi.java 
- 
-// Forma de ejecutarlo: 
-// java CalculoPi [numero de nodo]
+public class CalculoPi {
 
-class CalculoPi {
+    static double Pi = 0;
 
-    static Object obj = new Object();
-    static float pi = 0;
+    public static void main(String[] args) {
 
-    static class Hilo extends Thread {
-        Socket conexion;
+        int numNodo = Integer.parseInt(args[0]);
 
-        Hilo(Socket conexion) {
-            this.conexion = conexion;
+        switch (numNodo) {
+            case 0:
+                System.out.println("Cliente listo ...");
+                try {
+
+                    Mensajero m1 = new Mensajero(50_001);
+                    Mensajero m2 = new Mensajero(50_002);
+                    Mensajero m3 = new Mensajero(50_003);
+                    Mensajero m4 = new Mensajero(50_004);
+
+                    m1.start();
+                    m2.start();
+                    m3.start();
+                    m4.start();
+
+                    m1.join();
+                    m2.join();
+                    m3.join();
+                    m4.join();
+
+                    System.out.println("\nCalculo de Pi: " + Pi);
+                    break;
+
+                } catch (Exception e) {
+                    System.err.println(e);
+                }
+
+            case 1:
+                System.out.println("Servidor " + numNodo + " listo ...");
+                Servidor servidor1 = new Servidor(1, 50_001);
+                servidor1.empieza();
+                break;
+
+            case 2:
+                System.out.println("Servidor " + numNodo + " listo ...");
+                Servidor servidor2 = new Servidor(2, 50_002);
+                servidor2.empieza();
+                break;
+
+            case 3:
+                System.out.println("Servidor " + numNodo + " listo ...");
+                Servidor servidor3 = new Servidor(3, 50_003);
+                servidor3.empieza();
+                break;
+
+            case 4:
+                System.out.println("Servidor " + numNodo + " listo ...");
+                Servidor servidor4 = new Servidor(4, 50_004);
+                servidor4.empieza();
+                break;
+
+            default:
+                System.out.println("Escriba un numero entre 0 y 4");
+                break;
+
+        }
+    }
+
+    static class Mensajero extends Thread {
+
+        int puerto;
+        static Object obj = new Object();
+
+        Mensajero(int puerto) {
+            this.puerto = puerto;
         }
 
         public void run() {
             try {
-                DataInputStream entrada = new DataInputStream(conexion.getInputStream());
-                float suma = entrada.readFloat();
+                while (true) {
+                    try {
+                        Socket conexion = new Socket("localhost", puerto);
+                        DataInputStream entrada = new DataInputStream(conexion.getInputStream());
 
-                synchronized (obj){
-                    pi += suma;
+                        double resultado = entrada.readDouble();
+
+                        synchronized (obj) {
+                            Pi += resultado;
+                        }
+
+                        System.out.println(puerto + " --- " + Pi);
+                        conexion.close();
+                        break;
+
+                    } catch (Exception e) {
+                        Thread.sleep(100);
+                    }
                 }
-
-                entrada.close();
-                conexion.close();
-
-            } catch (Exception e) {
-                System.err.println(e);
+            } catch (Exception ex) {
+                System.err.println(ex);
             }
         }
     }
 
-    public static void main(String[] args) throws Exception {
-        
-        int nodo = Integer.valueOf(args[0]);
+    static class Servidor {
 
-		if(nodo == 0){
-			ServerSocket servidor = new ServerSocket(20000);
-            System.out.println("Nodo 0 listo ...");
+        int numNodo, puerto;
 
-			Hilo[] v = new Hilo[4];
+        Servidor(int numNodo, int puerto) {
+            this.numNodo = numNodo;
+            this.puerto = puerto;
+        }
 
-			for(int i = 0; i < 4; i++){
-				Socket conexion = servidor.accept();
-				v[i] = new Hilo(conexion);
-            	v[i].start();
-			}
+        public void empieza() {
+            try {
+                ServerSocket servidor = new ServerSocket(puerto);
+                Socket conexion = servidor.accept();
+                DataOutputStream salida = new DataOutputStream(conexion.getOutputStream());
 
-			for(int i = 0; i < 4; i++){
-				v[i].join();
-			}
+                double resultado = 0;
+                double numNodoDouble = Double.valueOf(numNodo);
 
-			System.out.println("Calculo de Pi = "+ pi);
-            servidor.close();
-
-		}
-        else{
-			Socket conexion = null;
-
-            while (true){
-                try {
-                    conexion = new Socket("localhost", 20000);
-                    System.out.println("Nodo " + nodo +	" listo ...");
-                    
-
-                    break;
-                } catch (Exception e) {
-                    System.err.println(e);
+                for (double i = 0; i < 1_000_000; i++) {
+                    resultado = resultado + (4 / ((8 * i) + (2 * (numNodoDouble - 2)) + 3));
                 }
-                Thread.sleep(200);
+
+                resultado = (numNodo % 2 == 0) ? -resultado : resultado;
+
+                salida.writeDouble(resultado);
+                System.out.println(resultado);
+
+                conexion.close();
+                servidor.close();
+
+            } catch (Exception ex) {
+                System.err.println(ex);
             }
-
-			DataOutputStream salida = new DataOutputStream(conexion.getOutputStream());	
-
-			float suma = 0;
-
-			for(int i = 0; i < 1_000_000; i++){
-				suma += (4.0 / ((8 * i) + (2 * (nodo - 2)) + 3));
-			}
-
-			suma = (nodo % 2 == 0) ? -suma : suma;
-            System.out.println("Nodo " + nodo + "termino el calculo");                
-
-			salida.writeFloat(suma);
-			salida.close();
-			conexion.close();
-		}
+        }
     }
 }
