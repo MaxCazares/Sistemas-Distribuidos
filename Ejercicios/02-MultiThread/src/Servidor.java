@@ -55,7 +55,7 @@ public class Servidor {
             Socket conexion = servidor.accept();
             Worker w = new Worker(conexion);
             w.start();
-            // servidor.close();
+            servidor.close();
         }
     }
 }
