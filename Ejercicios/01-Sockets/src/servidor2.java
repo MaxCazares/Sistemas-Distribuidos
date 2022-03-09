@@ -16,8 +16,23 @@ public class servidor2 {
             
             long inicio = System.currentTimeMillis();
 
-            firstExercise(entrada, 10000);
+            // firstExercise(entrada, 10000);
             // secondExercise(entrada, 10000);
+
+            int N = 10;
+            double[][] A = new double[N][N];
+            double[][] B = new double[N][N];
+
+            for (int i = 0; i < N; i++) {
+                for (int j = 0; j < N; j++) {
+                    A[i][j] = entrada.readDouble();
+                    B[i][j] = entrada.readDouble();
+                }
+            }
+
+            imprimirMatriz(A, N);
+            System.out.println("\n\n");
+            imprimirMatriz(B, N);            
 
             long fin = System.currentTimeMillis();
 
@@ -47,5 +62,14 @@ public class servidor2 {
         //     System.out.println(b.getDouble());
         // }
         System.out.println(b);
+    }
+
+    public static void imprimirMatriz(double[][] m, int N){
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                System.out.print(m[i][j] + " ");
+            }
+            System.out.println("\n");
+        }
     }
 }
