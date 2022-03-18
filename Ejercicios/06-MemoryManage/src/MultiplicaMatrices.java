@@ -1,6 +1,6 @@
 public class MultiplicaMatrices {
     
-    static int N = 2000;
+    static int N = 500;
     static int[][] A = new int[N][N];
     static int[][] B = new int[N][N];
     static int[][] C = new int[N][N];

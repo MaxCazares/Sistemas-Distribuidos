@@ -16,9 +16,9 @@ public class servidor2 {
             
             long inicio = System.currentTimeMillis();
 
-            // firstExercise(entrada, 10000);
+            firstExercise(entrada, 10000);
             // secondExercise(entrada, 10000);
-
+/*
             int N = 10;
             double[][] A = new double[N][N];
             double[][] B = new double[N][N];
@@ -32,7 +32,8 @@ public class servidor2 {
 
             imprimirMatriz(A, N);
             System.out.println("\n\n");
-            imprimirMatriz(B, N);            
+            imprimirMatriz(B, N);          
+*/  
 
             long fin = System.currentTimeMillis();
 

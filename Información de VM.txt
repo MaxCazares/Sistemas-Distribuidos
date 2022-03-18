@@ -8,7 +8,7 @@ usuario: ubuntu
 contraseña: Ubuntu_123456
 
 windows
-usuario: MaxoVM
+usuario: MaxoVM, E2_T4
 contraseña: Qwerty_123456
 
 pagina util: https://www.digitalocean.com/community/tutorials/how-to-use-sftp-to-securely-transfer-files-with-a-remote-server-es
@@ -40,3 +40,22 @@ videos utiles:
 Instalar java en ubuntu
 sudo apt-get update && sudo apt-get install default-jre && sudo apt-get install openjdk-8-jdk
 sudo apt-get update && sudo apt-get install default-jre && sudo apt-get install default-jdk
+
+Creación de una maquina virtual con una imagen.
+https://www.youtube.com/watch?v=c7YE8_87xvc&t=1s
+
+Imagenes de las maquinas cirtuales
+
+Crear una maquina virtual con Ubuntu 01-Introduccion/79 - 81
+
+Abrir un puerto de entrada 01-Introduccion/82 
+
+Eliminar una maquina virtual 01-Introduccion/83
+
+Crear una maquina virtual con Windows 01-Introduccion/95 - 97
+
+Crear una maquina virtual generalizada con Ubuntu 01-Introduccion/105
+
+Crear una maquina virtual a partir de una imagen con Ubuntu 01-Introduccion/107
+
+Crear una maquina virtual generalizada con Windows 01-Introduccion/122 - 124
