@@ -98,8 +98,8 @@ public class Chat {
             mensaje = nombre + " dice " + in.nextLine();
             byte buffer[] = mensaje.getBytes(StandardCharsets.UTF_8);
             envia_mensaje_multicast(buffer, "230.0.0.0", 50_000);
+            in.close(); // quitar esta linea
         }
-
     }
 
     static void envia_mensaje_multicast(byte[] buffer, String ip, int puerto) throws IOException {

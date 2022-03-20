@@ -122,32 +122,32 @@ public class cliente2 {
 
         C = multiplicaMatrices(A1, B2, N);
 
-        // System.out.println("Matriz A");
-        // imprimirMatriz(A, N);
-        // System.out.println("\n");
+        System.out.println("Matriz A");
+        imprimirMatriz(A, N);
+        System.out.println("\n");
 
         System.out.println("Matriz A1");
         imprimirMediaMatriz(A1, N);
         System.out.println("\n");
 
-        // System.out.println("Matriz A2");
-        // imprimirMediaMatriz(A2, N);
-        // System.out.println("\n");
+        System.out.println("Matriz A2");
+        imprimirMediaMatriz(A2, N);
+        System.out.println("\n");
 
-        // System.out.println("Matriz B");
-        // imprimirMatriz(B, N);
-        // System.out.println("\n");
+        System.out.println("Matriz B");
+        imprimirMatriz(B, N);
+        System.out.println("\n");
 
-        // System.out.println("Matriz B1");
-        // imprimirMediaMatriz(B1, N);
-        // System.out.println("\n");
+        System.out.println("Matriz B1");
+        imprimirMediaMatriz(B1, N);
+        System.out.println("\n");
 
         System.out.println("Matriz B2");
         imprimirMediaMatriz(B2, N);
         System.out.println("\n");
 
-        // System.out.println("Matriz C");
-        // imprimirMediaMatriz(C, N);
-        // System.out.println("\n");
+        System.out.println("Matriz C");
+        imprimirMediaMatriz(C, N);
+        System.out.println("\n");
     }
 }
