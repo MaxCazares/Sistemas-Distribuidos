@@ -5,3 +5,5 @@
 *.pem
 *.docx
 \python
+*.zip
+*.jar

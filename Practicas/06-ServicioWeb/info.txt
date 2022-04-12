@@ -1,0 +1,29 @@
+usuario: Ubuntu
+contraseña: Qwerty_123456
+
+sudo apt update
+sudo apt install openjdk-8-jdk-headless
+sudo apt install unzip
+
+javax.servlet-api-3.0.1.jar
+
+tar -cuf respaldo_2019630423.tar *
+tar -xuf respaldo_2019630423.tar
+
+javac -cp $CATALINA_HOME/lib/javax.ws.rs-api-2.0.1.jar:$CATALINA_HOME/lib/gson-2.3.1.jar:. negocio/Servicio.java
+
+rm WEB-INF/classes/negocio/*
+cp negocio/*.class WEB-INF/classes/negocio/.
+jar cvf Servicio.war WEB-INF META-INF
+
+Variables de entorno
+
+export CATALINA_HOME="/home/Ubuntu/apache-tomcat-8.5.77"
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
+
+Iniciar servidor
+
+sh $CATALINA_HOME/bin/catalina.sh start
+
+Detener servidor
+sh $CATALINA_HOME/bin/catalina.sh stop

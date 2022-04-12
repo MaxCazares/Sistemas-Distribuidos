@@ -1,0 +1,66 @@
+Imagenes de la primera actividad con VM.
+	Introduccion / 79 - 83
+
+Maquina virtual con Ubuntu
+
+linux
+usuario: ubuntu
+contraseña: Ubuntu_123456
+
+windows
+usuario: MaxoVM, E2_T4
+contraseña: Qwerty_123456
+
+pagina util: https://www.digitalocean.com/community/tutorials/how-to-use-sftp-to-securely-transfer-files-with-a-remote-server-es
+
+videos utiles: 
+	https://youtu.be/XhfrZr3Y4dc
+	https://www.youtube.com/watch?v=IhY1iBfnVj0
+
+Imagenes de la segunda actividad con VM.
+	Introduccion / 95 - 97
+
+Videos utiles:
+	https://www.youtube.com/watch?v=XEBeuh5M80M
+
+Imagenes de la tercera actividad con VM.
+	introduccion / 105 - 107
+
+paginas utiles:
+	https://docs.microsoft.com/es-es/azure/virtual-machines/windows/capture-image-resource
+
+	https://docs.microsoft.com/es-mx/azure/virtual-machines/extensions/agent-linux
+
+
+videos utiles: 
+	https://www.youtube.com/watch?v=wcYOpu4RM-E&t=1s
+	como instalar java en la maquina virtual: https://www.youtube.com/watch?v=h6AZ8zopwUc
+
+
+Instalar java en ubuntu
+sudo apt-get update && sudo apt-get install default-jre && sudo apt-get install openjdk-8-jdk
+sudo apt-get update && sudo apt-get install default-jre && sudo apt-get install default-jdk
+
+Creación de una maquina virtual con una imagen.
+https://www.youtube.com/watch?v=c7YE8_87xvc&t=1s
+
+Imagenes de las maquinas cirtuales
+
+Crear una maquina virtual con Ubuntu 01-Introduccion/79 - 81
+
+Abrir un puerto de entrada 01-Introduccion/82 
+
+Eliminar una maquina virtual 01-Introduccion/83
+
+Crear una maquina virtual con Windows 01-Introduccion/95 - 97
+
+Crear una maquina virtual generalizada con Ubuntu 01-Introduccion/105 - 106
+
+Crear una maquina virtual a partir de una imagen con Ubuntu 01-Introduccion/107
+
+Crear una maquina virtual generalizada con Windows 01-Introduccion/122 - 124
+
+Datos para la imagen de Ubuntu con Tomcat
+
+contraseña root de MySQL: qwerty
+contraseña de Hugo: qwerty_1
