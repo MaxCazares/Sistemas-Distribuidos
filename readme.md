@@ -5,5 +5,4 @@ Este repositorio contiene todas las prácticas de la materia Desarrollo de Siste
 Para hacer uso de estas prácticas se recomienda el uso de:
 
 * [JDK15](https://www.oracle.com/java/technologies/javase/jdk15-archive-downloads.html)
-* [Visual Studio code](https://code.visualstudio.com/)
 * [Azure for students](https://azure.microsoft.com/en-us/free/students/)
