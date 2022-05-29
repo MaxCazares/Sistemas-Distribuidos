@@ -1,0 +1,20 @@
+servidor de mysql
+
+nombre del usuario administrador: ServerTarea11
+contraseña del servidor: Qwerty_123456
+nombre del servidor: mysql2019630423
+
+comando para conectarse al servidor: 
+mysql -u ServerTarea11@mysql2019630423 -p -h mysql2019630423.mysql.database.azure.com --ssl-mode REQUIRED
+
+Variables de entorno
+
+export CATALINA_HOME="/home/Ubuntu/apache-tomcat-8.5.77"
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
+
+Iniciar servidor
+
+sh $CATALINA_HOME/bin/catalina.sh start
+
+Detener servidor
+sh $CATALINA_HOME/bin/catalina.sh stop
